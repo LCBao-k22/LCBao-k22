@@ -73,16 +73,30 @@ _start:
 - Conduct the attack so that when C program is executed, the /etc/passwd file is copied to /tmp/pwfile. You are free to choose Code Injection or Environment Variable approach to do. 
 - Write step-by-step explanation and clearly comment on instructions and screenshots that you have made to successfully accomplished the attack.
 **Answer 1**: Must conform to below structure:
-
-Description text (optional)
-
-
-``` 
-    code block (optional)
-```
-
-output screenshot (optional)
-
+  #### step 1: Create a vulnerable c program
+  ``` 
+    seed@567028f4b4b0:~/seclabs/bof$ nano vulnerable.c 
+  ```
+  #### step 2: Compile the vulnerable c program
+  ```bash
+     gcc -o vulnerable vulnerable.c -fno-stack-protector -z execstack
+  ```
+  - -fno-stack-protector: Disables stack protection, making the program vulnerable to buffer overflow attacks.
+  - -z execstack: Allows execution of code on the stack, enabling exploitation through injected shellcode.
+  #### step 3: Build an Assemply payload
+  ``` 
+    seed@567028f4b4b0:~/seclabs/bof$ nano shellcode.asm
+  ```
+  #### step 4: Compile the Asssemply code
+  ```bash
+     nasm -f elf32 -o shellcode.o shellcode.asm
+     ld -m elf_i386 -o shellcode shellcode.o
+  ```
+  #### step 5: Find the address of the shellcode
+  ```bash
+     gdb ./vulnerable
+  ```
+  
 **Conclusion**: comment text about the screenshot or simply answered text for the question
 
 # Task 2: Attack on database of DVWA
