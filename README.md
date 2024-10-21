@@ -128,8 +128,12 @@ _start:
    ![image](https://github.com/user-attachments/assets/c4c3bba3-24e9-4a2b-a9c3-660a20aeed61)
    User: admin
    Password: password
-   
-
+   ![2](https://github.com/user-attachments/assets/d606eac2-2999-4370-b19c-b959cda33fff)
+3. Install SQLMap in WSL
+   ```bash
+      wsl
+      sudo apt install sqlmap
+   ```
 
 **Question 2**: Use sqlmap to get tables, users information
 **Answer 2**:
