@@ -134,6 +134,9 @@ _start:
       wsl
       sudo apt install sqlmap
    ```
+4. Find the website url to attack
+   ![image](https://github.com/user-attachments/assets/aaad26f0-4f4e-49f8-8910-bc69b19387f2)
+   enter random to return http://localhost/vulnerabilities/sqli/?id=1
 
 **Question 2**: Use sqlmap to get tables, users information
 **Answer 2**:
