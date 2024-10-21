@@ -124,6 +124,12 @@ _start:
       docker run -d -p 80:80 vulnerables/web-dvwa
    ```
    ![image](https://github.com/user-attachments/assets/c89ed07c-5616-4614-8b55-8f4a27d30e8a)
+2. Access DVWA with a web browser and go to: http://localhost Log in with the default user
+   ![image](https://github.com/user-attachments/assets/c4c3bba3-24e9-4a2b-a9c3-660a20aeed61)
+   User: admin
+   Password: password
+   
+
 
 **Question 2**: Use sqlmap to get tables, users information
 **Answer 2**:
