@@ -77,16 +77,21 @@ _start:
   ``` 
     seed@567028f4b4b0:~/seclabs/bof$ nano vulnerable.c 
   ```
+  ![image](https://github.com/user-attachments/assets/227b7284-5d61-466c-a766-f56c8ba2579b)
+
   #### step 2: Compile the vulnerable c program
   ```bash
      gcc -o vulnerable vulnerable.c -fno-stack-protector -z execstack
   ```
+  
   - -fno-stack-protector: Disables stack protection, making the program vulnerable to buffer overflow attacks.
   - -z execstack: Allows execution of code on the stack, enabling exploitation through injected shellcode.
   #### step 3: Build an Assemply payload
   ``` 
     seed@567028f4b4b0:~/seclabs/bof$ nano shellcode.asm
   ```
+  ![image](https://github.com/user-attachments/assets/4f8b0e7d-a38a-4098-bab7-025926764e0b)
+
   #### step 4: Compile the Asssemply code
   ```bash
      nasm -f elf32 -o shellcode.o shellcode.asm
@@ -96,7 +101,13 @@ _start:
   ```bash
      gdb ./vulnerable
   ```
-  
+  - in `gdb` set a breakpoint at `main ` run the program with a dummy argument to obtain the address of your shellcode.
+  ```bash
+     break main
+     run $(python -c "print('A'*72)")
+     p &buffer
+  ```
+    
 **Conclusion**: comment text about the screenshot or simply answered text for the question
 
 # Task 2: Attack on database of DVWA
