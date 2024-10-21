@@ -118,6 +118,12 @@ _start:
 
 **Question 1**: Use sqlmap to get information about all available databases
 **Answer 1**:
+1. Pull DVMA Docker image
+   ```bash
+      docker pull vulnerables/web-dvwa
+      docker run -d -p 80:80 vulnerables/web-dvwa
+   ```
+   ![image](https://github.com/user-attachments/assets/c89ed07c-5616-4614-8b55-8f4a27d30e8a)
 
 **Question 2**: Use sqlmap to get tables, users information
 **Answer 2**:
